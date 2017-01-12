@@ -1,0 +1,17 @@
+.calculator {
+    display: inline-flex;
+    flex-direction: column;
+    margin: 10px;
+    md-card
+    {
+        margin: 10px;
+    }
+    .zone-switches {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        .select-zone-btn {
+            margin: 5px;
+        }
+    }
+}

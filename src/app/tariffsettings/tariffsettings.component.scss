@@ -1,0 +1,26 @@
+.tariff-settings
+{
+    display: inline-flex;
+    flex-direction: column;
+    margin: 10px;
+    md-card
+    {
+        margin: 10px;
+    }
+    .factor-input
+    {
+        width: 100px;
+    }
+    .tariff-limit-input
+    {
+        width: 100px;
+    }
+    .tariff-cost-input
+    {
+        width: 100px;
+    }
+    .reset-btn
+    {
+        float: right;
+    }
+}
