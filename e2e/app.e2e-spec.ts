@@ -1,6 +1,6 @@
 import { EcalcPage } from './app.po';
 
-describe('ecalc App', function() {
+describe('ecalc App', () => {
   let page: EcalcPage;
 
   beforeEach(() => {

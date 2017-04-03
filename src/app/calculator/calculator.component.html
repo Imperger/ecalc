@@ -4,7 +4,7 @@
       <tr *ngFor="let phase of processor.phasesGroup.phases; let i=index">
         <td>
           <md-input-container>
-            <input type="number" min="0" md-input [placeholder]="phase.title" [(ngModel)]="processor.consumptions[i]">
+            <input mdInput  type="number" min="0" md-input [placeholder]="phase.title" [(ngModel)]="processor.consumptions[i]">
           </md-input-container>
           кВт·ч
         </td>
@@ -15,7 +15,7 @@
     </div>
   </md-card>
   <md-card class="zone-switches">
-    <button class="select-zone-btn" md-raised-button color="primary" *ngFor='let phasesGroup of avaliabePhasesGroups; let id = index'
+    <button md-button class="select-zone-btn" md-raised-button color="primary" *ngFor='let phasesGroup of avaliabePhasesGroups; let id = index'
       (click)="selectPhasesGroup(id)">{{phasesGroup.name}}</button>
   </md-card>
 </div>

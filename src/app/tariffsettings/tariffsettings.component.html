@@ -4,15 +4,15 @@
       <tr *ngFor="let phase of processor.phasesGroup.phases; let i=index">
         <td>
           <md-input-container>
-            <input md-input placeholder="Название" [(ngModel)]="phase.title" type="text">
+            <input mdInput placeholder="Название" [(ngModel)]="phase.title" type="text">
           </md-input-container>
         </td>
         <td>
           <md-input-container>
-            <input class="factor-input" md-input placeholder="Коэффициент" [(ngModel)]="phase.factor" type="number" min="0" step="0.5">
+            <input mdInput  class="factor-input" md-input placeholder="Коэффициент" [(ngModel)]="phase.factor" type="number" min="0" step="0.5">
           </md-input-container>
         </td>
-        <td><button md-raised-button color="primary" (click)="processor.removePhase(i)">Удалить</button></td>
+        <td><button  md-raised-button color="primary" (click)="processor.removePhase(i)">Удалить</button></td>
       </tr>
     </table>
     <button md-raised-button color="primary" (click)="processor.addPhase('Новая зона', 1)">Добавить</button>
@@ -23,13 +23,13 @@
         <td>до</td>
         <td>
           <md-input-container>
-            <input class="tariff-limit-input" md-input [(ngModel)]="tariff.limit" type="number" min="0">
+            <input mdInput  class="tariff-limit-input" md-input [(ngModel)]="tariff.limit" type="number" min="0">
           </md-input-container>
           кВт·ч
         </td>
         <td>
           <md-input-container>
-            <input class="tariff-cost-input" md-input [(ngModel)]="tariff.cost" type="number" min="0">
+            <input mdInput  class="tariff-cost-input" md-input [(ngModel)]="tariff.cost" type="number" min="0">
           </md-input-container>
           коп.</td>
         <td><button md-raised-button color="primary" (click)="processor.removeLimit(i)">Удалить</button></td>
@@ -38,12 +38,12 @@
         <td>больше</td>
         <td>
           <md-input-container>
-            <input class="tariff-limit-input" md-input [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 2].limit" type="number" min="0">
+            <input mdInput  class="tariff-limit-input" md-input [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 2].limit" type="number" min="0">
           </md-input-container>
           кВт·ч</td>
         <td>
           <md-input-container>
-            <input class="tariff-cost-input" md-input [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 1].cost" type="number" min="0">
+            <input mdInput  class="tariff-cost-input" md-input [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 1].cost" type="number" min="0">
           </md-input-container>
           коп.</td>
       </tr>
@@ -51,7 +51,7 @@
     <div *ngIf="processor.tariff.costs.length == 1">
       1 кВт·ч
       <md-input-container>
-        <input md-input [(ngModel)]="processor.tariff.costs[0].cost" type="number" min="0">
+        <input mdInput [(ngModel)]="processor.tariff.costs[0].cost" type="number" min="0">
       </md-input-container>
       коп.
     </div>
