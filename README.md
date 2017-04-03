@@ -1,3 +1,3 @@
-![](https://travis-ci.org/imperger/ecalc.svg?branch=master)
+![](https://travis-ci.org/Imperger/ecalc.svg?branch=master)
 
 [```Калькулятор```]( https://imperger.github.io/ecalc)
