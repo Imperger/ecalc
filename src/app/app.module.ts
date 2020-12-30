@@ -1,18 +1,17 @@
-import 'hammerjs';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButton, MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProgressiveTariffService } from './progressivetariff.service';
-import { ProcessorService } from './processor.service';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { TariffsettingsComponent } from './tariffsettings/tariffsettings.component';
 import { UahPipe } from './uah.pipe';
-
 
 @NgModule({
   declarations: [
@@ -23,11 +22,15 @@ import { UahPipe } from './uah.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule,
-    MaterialModule.forRoot()
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule
   ],
-  providers: [ProgressiveTariffService, ProcessorService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

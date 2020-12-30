@@ -1,4 +1,4 @@
-import {IPhase} from './phase.interface';
+import {IPhase} from './phase';
 
 export interface IPhasesGroup {
     phases: IPhase[];

@@ -1,4 +1,4 @@
-import {IPhasesGroup} from './phasesgroup.interface';
+import {IPhasesGroup} from './phasesgroup';
 
 export interface IPhasesGroupConstructor {
     new (): IPhasesGroup;

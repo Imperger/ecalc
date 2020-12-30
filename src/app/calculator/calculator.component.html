@@ -1,21 +1,18 @@
 <div class="calculator">
-  <md-card>
-    <table>
-      <tr *ngFor="let phase of processor.phasesGroup.phases; let i=index">
-        <td>
-          <md-input-container>
-            <input mdInput  type="number" min="0" md-input [placeholder]="phase.title" [(ngModel)]="processor.consumptions[i]">
-          </md-input-container>
-          кВт·ч
-        </td>
-      </tr>
-    </table>
-    <div>
-      <strong>К оплате: </strong>{{processor.calculate() | uah}}
-    </div>
-  </md-card>
-  <md-card class="zone-switches">
-    <button md-button class="select-zone-btn" md-raised-button color="primary" *ngFor='let phasesGroup of avaliabePhasesGroups; let id = index'
-      (click)="selectPhasesGroup(id)">{{phasesGroup.name}}</button>
-  </md-card>
+    <mat-card>
+        <div *ngFor="let phase of processor.phasesGroup.phases; let i=index">
+            <mat-form-field>
+                <input matInput type="number" min="0" [placeholder]="phase.title" [(ngModel)]="processor.consumptions[i]">
+            </mat-form-field>
+            кВт·ч
+        </div>
+        <div>
+            <strong>К оплате: </strong>{{processor.calculate() | uah}}
+        </div>
+    </mat-card>
+    <mat-card class="zone-switches">
+        <button mat-raised-button class="select-zone-btn" color="primary"
+            *ngFor='let phasesGroup of avaliabePhasesGroups; let id = index'
+            (click)="selectPhasesGroup(id)">{{phasesGroup.name}}</button>
+    </mat-card>
 </div>

@@ -1,5 +1,5 @@
-import {IPhasesGroup} from '../phasesgroup.interface';
-import {IPhase} from '../phase.interface';
+import {IPhasesGroup} from '../phasesgroup';
+import {IPhase} from '../phase';
 
 export class TwoPhasesGroup implements IPhasesGroup
 {

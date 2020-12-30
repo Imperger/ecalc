@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import {ProcessorService} from './../processor.service';
 import {ProgressiveTariffService} from './../progressivetariff.service'
 
@@ -9,12 +10,13 @@ import {ProgressiveTariffService} from './../progressivetariff.service'
 })
 export class TariffsettingsComponent implements OnInit {
 
-  constructor(private processor: ProcessorService) { }
+  constructor(public processor: ProcessorService) { }
   public resetTariff()
   {
     this.processor.tariff = new ProgressiveTariffService();
   }
-  ngOnInit() {
+
+  ngOnInit(): void {
   }
 
 }

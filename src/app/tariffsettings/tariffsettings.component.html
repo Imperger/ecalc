@@ -1,61 +1,69 @@
 <div class="tariff-settings">
-  <md-card>
-    <table>
-      <tr *ngFor="let phase of processor.phasesGroup.phases; let i=index">
-        <td>
-          <md-input-container>
-            <input mdInput placeholder="Название" [(ngModel)]="phase.title" type="text">
-          </md-input-container>
-        </td>
-        <td>
-          <md-input-container>
-            <input mdInput  class="factor-input" md-input placeholder="Коэффициент" [(ngModel)]="phase.factor" type="number" min="0" step="0.5">
-          </md-input-container>
-        </td>
-        <td><button  md-raised-button color="primary" (click)="processor.removePhase(i)">Удалить</button></td>
-      </tr>
-    </table>
-    <button md-raised-button color="primary" (click)="processor.addPhase('Новая зона', 1)">Добавить</button>
-  </md-card>
-  <md-card>
-    <table *ngIf="processor.tariff.costs.length > 1">
-      <tr *ngFor="let tariff of processor.limitedCosts(); let i=index">
-        <td>до</td>
-        <td>
-          <md-input-container>
-            <input mdInput  class="tariff-limit-input" md-input [(ngModel)]="tariff.limit" type="number" min="0">
-          </md-input-container>
-          кВт·ч
-        </td>
-        <td>
-          <md-input-container>
-            <input mdInput  class="tariff-cost-input" md-input [(ngModel)]="tariff.cost" type="number" min="0">
-          </md-input-container>
-          коп.</td>
-        <td><button md-raised-button color="primary" (click)="processor.removeLimit(i)">Удалить</button></td>
-      </tr>
-      <tr>
-        <td>больше</td>
-        <td>
-          <md-input-container>
-            <input mdInput  class="tariff-limit-input" md-input [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 2].limit" type="number" min="0">
-          </md-input-container>
-          кВт·ч</td>
-        <td>
-          <md-input-container>
-            <input mdInput  class="tariff-cost-input" md-input [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 1].cost" type="number" min="0">
-          </md-input-container>
-          коп.</td>
-      </tr>
-    </table>
-    <div *ngIf="processor.tariff.costs.length == 1">
-      1 кВт·ч
-      <md-input-container>
-        <input mdInput [(ngModel)]="processor.tariff.costs[0].cost" type="number" min="0">
-      </md-input-container>
-      коп.
-    </div>
-    <button md-raised-button color="primary" (click)="processor.addLimit()" type="button">Добавить</button>
-    <button class="reset-btn" md-raised-button color="accent" (click)="resetTariff()">Сбросить</button>
-  </md-card>
+    <mat-card>
+        <table>
+            <tr *ngFor="let phase of processor.phasesGroup.phases; let i=index">
+                <td>
+                    <mat-form-field>
+                        <input matInput placeholder="Название" [(ngModel)]="phase.title" type="text">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="factor-input">
+                        <input matInput mat-input placeholder="Коэффициент"
+                            [(ngModel)]="phase.factor" type="number" min="0" step="0.5">
+                    </mat-form-field>
+
+                </td>
+                <td><button mat-raised-button color="primary" (click)="processor.removePhase(i)">Удалить</button></td>
+            </tr>
+        </table>
+        <button mat-raised-button color="primary" (click)="processor.addPhase('Новая зона', 1)">Добавить</button>
+    </mat-card>
+    <mat-card>
+        <table *ngIf="processor.tariff.costs.length > 1">
+            <tr *ngFor="let tariff of processor.limitedCosts(); let i=index">
+                <td>до</td>
+                <td>
+                    <mat-form-field>
+                        <input matInput class="tariff-limit-input" mat-input [(ngModel)]="tariff.limit" type="number" min="0">
+                    </mat-form-field>
+                    кВт·ч
+                </td>
+                <td>
+                    <mat-form-field class="tariff-cost-input">
+                        <input matInput mat-input [(ngModel)]="tariff.cost" type="number"
+                            min="0">
+                    </mat-form-field>
+                    коп.
+                </td>
+                <td><button mat-raised-button color="primary" (click)="processor.removeLimit(i)">Удалить</button></td>
+            </tr>
+            <tr>
+                <td>больше</td>
+                <td>
+                    <mat-form-field class="tariff-limit-input">
+                        <input matInput mat-input
+                            [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 2].limit" type="number" min="0">
+                    </mat-form-field>
+                    кВт·ч
+                </td>
+                <td>
+                    <mat-form-field>
+                        <input matInput class="tariff-cost-input" mat-input
+                            [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 1].cost" type="number" min="0">
+                    </mat-form-field>
+                    коп.
+                </td>
+            </tr>
+        </table>
+        <div *ngIf="processor.tariff.costs.length == 1">
+            1 кВт·ч
+            <mat-form-field>
+                <input matInput [(ngModel)]="processor.tariff.costs[0].cost" type="number" min="0">
+            </mat-form-field>
+            коп.
+        </div>
+        <button mat-raised-button color="primary" (click)="processor.addLimit()" type="button">Добавить</button>
+        <button class="reset-btn" mat-raised-button color="accent" (click)="resetTariff()">Сбросить</button>
+    </mat-card>
 </div>

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import { ProgressiveTariffService } from './progressivetariff.service';
-import { IPhasesGroup } from './phasesgroup.interface';
+import { IPhasesGroup } from './phasesgroup';
 import { TwoPhasesGroup } from './phases/twophasesgroup';
-import { IProgressiveCost } from './progressivecost.interface';
+import { IProgressiveCost } from './progressivecost';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProcessorService {
   public consumptions: number[] = [0, 0];
   public phasesGroup: IPhasesGroup = new TwoPhasesGroup();
@@ -40,7 +42,7 @@ export class ProcessorService {
       this.phasesGroup.phases.forEach((phase, phaseIdx) => {
         payment += consumption * consumptionsRates[phaseIdx] * phase.factor * cost.cost;
       });
-      prevLimit = cost.limit;
+      prevLimit = cost.limit || 0;
       return isContinue;
     });
     return Math.round(payment);
@@ -60,7 +62,7 @@ export class ProcessorService {
   }
   public addLimit() {
     if (this.tariff.costs.length > 1) {
-      this.tariff.costs[this.tariff.costs.length-1].limit = this.tariff.costs[this.tariff.costs.length-2].limit + 1;
+      this.tariff.costs[this.tariff.costs.length-1].limit = this.tariff.costs[this.tariff.costs.length-2].limit || 0 + 1;
       this.tariff.costs.push({cost: 0});
     }
     else {

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import {IProgressiveCost} from './progressivecost.interface';
 
-@Injectable()
+import {IProgressiveCost} from './progressivecost';
+
+@Injectable({
+  providedIn: 'root'
+})
 export class ProgressiveTariffService {
-    public costs: IProgressiveCost[] = [{cost: 90, limit: 100}, {cost: 168}];
+  public costs: IProgressiveCost[] = [{cost: 168}];
 }
