@@ -24,8 +24,8 @@
             <tr *ngFor="let tariff of processor.limitedCosts(); let i=index">
                 <td>до</td>
                 <td>
-                    <mat-form-field>
-                        <input matInput class="tariff-limit-input" mat-input [(ngModel)]="tariff.limit" type="number" min="0">
+                    <mat-form-field class="tariff-limit-input">
+                        <input matInput mat-input [(ngModel)]="tariff.limit" type="number" min="0">
                     </mat-form-field>
                     кВт·ч
                 </td>
@@ -48,8 +48,8 @@
                     кВт·ч
                 </td>
                 <td>
-                    <mat-form-field>
-                        <input matInput class="tariff-cost-input" mat-input
+                    <mat-form-field class="tariff-cost-input">
+                        <input matInput mat-input
                             [(ngModel)]="processor.tariff.costs[processor.tariff.costs.length - 1].cost" type="number" min="0">
                     </mat-form-field>
                     коп.
